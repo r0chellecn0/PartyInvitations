@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <title>Invite</title>
+    <style>
+        body {
+            background-color: rgba(99, 85, 85, 0.87);
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="text-center">
+        <h1>Settlers of Catan</h1>
+      <h2>  @ViewBag.Greeting  </h2>
+        
+        <p> I know, it's 5 o'clock somewhere. <br />
+        </p>
+        <div class="btn btn-success">
+        @Html.ActionLink("R S V P", "RsvpForm")
+            </div>
+        <p> <br />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBDHAyWuUZv3dZzfEggGIHcJ71ISXeJZdDVXLzeGHeeWioF3s4fQ" /> </p>
+    </div>
+</body>
+</html>

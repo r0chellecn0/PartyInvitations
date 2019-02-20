@@ -1,0 +1,9 @@
+﻿
+    .field-validation-error {color: #ef0f0f;}
+    .field-validation-valid { display: none;}
+    .input-validaton-error {border: 1px solid #4cff00; background-color: rgba(82, 18, 139, 0.75);}
+    .validation-summary-error {font-weight: bold; color: #1d8897;}
+    .validation-summary-valid {display: none;}
+body {
+    font-family: 'Roboto Slab', serif;
+}

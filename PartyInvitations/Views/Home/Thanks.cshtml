@@ -1,0 +1,59 @@
+﻿@model PartyInvitations.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <title>Thanks</title>
+</head>
+<style>
+    body {
+        background-color: rgba(99, 85, 85, 0.87);
+    }
+</style>
+<body>
+    @{ 
+        try { 
+        WebMail.SmtpServer = "smtp.example.com";
+        WebMail.SmtpPort = 587;
+       /* WebMail.EnableSs1 = true; */
+        WebMail.UserName = "mySmtpUsername";
+        WebMail.Password = "mySmtpPassword";
+        WebMail.From = "rsvps@example.com";
+
+        WebMail.Send("party-host@example.com", "RSVP Notification",
+            Model.Name + " is " + ((Model.WillAttend ?? false) ? "" : "not") + "attending");
+        } catch (Exception) { 
+    @:<b><center>Sorry - we couldn't send the email to confirm your RSVP</center> </b>
+        }
+    }
+    <div class="text-center"> 
+        <h1> Hey, @Model.Name! Thanks for your response</h1>
+        <div class="lead">
+            @if (Model.WillAttend == true)
+            {
+                <p>
+                    <img src="https://media.giphy.com/media/t3Mzdx0SA3Eis/giphy.gif" />
+                </p>
+                @: The board is already set up!
+
+            }
+            else
+            {
+                @: If you change your mind, stop by!
+                <p>
+                    <img src="https://i.imgflip.com/xhpk1.jpg" />
+                </p>
+            }
+        </div>
+    </div>
+</body>
+</html>
